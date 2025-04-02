@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Apr 02, 2025 at 12:00 PM
+-- Generation Time: Apr 02, 2025 at 12:31 PM
 -- Server version: 8.0.30
 -- PHP Version: 8.1.10
 
@@ -47,8 +47,15 @@ CREATE TABLE `users` (
   `id` int NOT NULL,
   `username` text NOT NULL,
   `password` text NOT NULL,
-  `admin` tinyint(1) NOT NULL
+  `admin` tinyint(1) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+--
+-- Dumping data for table `users`
+--
+
+INSERT INTO `users` (`id`, `username`, `password`, `admin`) VALUES
+(1, 'Aceist', '$2y$10$rdBo/WvU03anyK1kmSuac.xZ0A0fO5CiY5q7n/OSfcA98O5rWBpMy', NULL);
 
 --
 -- Indexes for dumped tables
@@ -80,7 +87,7 @@ ALTER TABLE `games`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
