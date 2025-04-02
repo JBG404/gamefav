@@ -41,11 +41,12 @@ if ($action == 'login') {
     }
     
     if (password_verify($password, $user['password'])) {
-        session_start();
+        // session_start();
         $_SESSION['user_id'] = $user['id'];
         $_SESSION['username'] = $user['username'];
         $_SESSION['admin'] = $user['admin'];
-        header("Location: $base_url/index.php?msg=Login+success");
+        header("Location: $base_url/index.php");
+        // header("Location: $base_url/index.php?msg=Login+success");
     } else {
         header("Location: $base_url/login.php?error=Wrong+username+or+password");
     }
