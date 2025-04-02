@@ -9,10 +9,12 @@ if (!isset($_SESSION['user_id'])) {
 <!doctype html>
 <html lang="nl">
 
-<head>
-    <title>Favorite Games</title>
-    <?php require_once '../head.php'; ?>
-</head>
+
+<?php
+require_once ('head.php');
+require_once ('header.php');
+?>
+
 
 <body>
 
