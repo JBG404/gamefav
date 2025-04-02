@@ -6,17 +6,17 @@ require_once 'conn.php';
 $action = $_POST['action'];
 
 if ($action == 'create') { 
-    $user = $_POST['username'];
+    $username = $_POST['username'];
     $pass = $_POST['password'];
     $pass = password_hash($pass, PASSWORD_DEFAULT);
 
     
-    $query = "INSERT INTO users (user, password) VALUES (:user, :pass)";
+    $query = "INSERT INTO users (username, password) VALUES (:username, :pass)";
 
     $statement = $conn->prepare($query);
 
     $statement->execute([
-        ':user' => $user,
+        ':username' => $username,
         ':pass' => $pass
     ]);
     header("Location: $base_url/createAccount.php?msg=Account+made");

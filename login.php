@@ -17,7 +17,7 @@ if (isset($_GET['error'])) {
 ?>
 
 <form action="backend/loginController.php" method="POST">
-<input type="hidden" name="action" value="create">
+<input type="hidden" name="action" value="login">
     <div class="form-group">
         <label for="username">Gebruikersnaam</label>
         <input type="text" name="username" id="username" placeholder="Gebruikersnaam">
