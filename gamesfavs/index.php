@@ -18,43 +18,34 @@ require_once ('../CRUDheader.php');
 
 <body>
 
+    <div class="container home">
+        <h1>Game List</h1>
+        
+        <?php
+        require_once ('../backend/conn.php');
+        $query = "SELECT * FROM games";
+        $statement = $conn->prepare($query);
+        $statement->execute();
+        $games = $statement->fetchAll(PDO::FETCH_ASSOC);
 
-    <div class="container">
-        <h1>Voeg je favoriete games toe</h1>
-
-        <form action="../backend/gamefavController.php" method="POST">
-
-            <div class="form-group">
-                <label for="game">Naam van de game:</label>
-                <input type="text" name="game" id="game" class="form-input" required>
-            </div>
-
-            <div class="form-group">
-                <label for="type">Genre van de game:</label>
-                <select name="type" id="type" class="form-input" required>
-                    <option value="">- Kies een genre -</option>
-                    <option value="horror">Horror</option>
-                    <option value="story">Story</option>
-                    <option value="rpg">RPG</option>
-                    <option value="action">Action</option>
-                    <option value="fighting">Fighting</option>
-                    <option value="adventure">Adventure</option>
-                    <option value="else">Overig</option>
-                </select>
-            </div>
-
-            <div class="form-group">
-                <label for="price">Prijs:</label>
-                <input type="number" min="0" name="price" id="price" class="form-input" required>
-            </div>
-
-            <div class="form-group">
-                <label for="uploaded_by">Geüpload door:</label>
-                <input type="text" name="uploaded_by" id="uploaded_by" class="form-input" required>
-            </div>
-
-            <input type="submit" value="Voeg game toe" class="btn">
-        </form>
+        foreach ($games as $game)
+        ?>
+        <table>
+            <tr>
+                <th>GameName</th>
+                <th>genre</th>
+                <th>price</th>
+                <th>User Updloaded/Fav</th>
+            </tr>
+            <?php foreach($games as $game) :?>
+                <tr>
+                    <td><?php echo $game['Game'] ?></td>
+                    <td><?php echo $game['genre'] ?></td>
+                    <?php if (!isset($game['price'])) {?> <td>Free</td> <?php } else { ?> <td><?php echo $game['price'] ?></td> <?php } ?>
+                    <td><?php echo $game['uploadend by'] ?></td>
+                </tr>
+            <?php endforeach;?>
+        </table>
 
     </div>
 
