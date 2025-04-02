@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Apr 02, 2025 at 11:50 AM
+-- Generation Time: Apr 02, 2025 at 12:00 PM
 -- Server version: 8.0.30
 -- PHP Version: 8.1.10
 
@@ -20,6 +20,8 @@ SET time_zone = "+00:00";
 --
 -- Database: `favgames`
 --
+CREATE DATABASE IF NOT EXISTS `favgames` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci;
+USE `favgames`;
 
 -- --------------------------------------------------------
 
