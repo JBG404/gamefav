@@ -1,5 +1,5 @@
 <?php
-
+session_start();
 if (!isset($_SESSION['user_id'])) {
     $msg = "Je moet ingelogd zijn om deze pagina te bekijken.";
     header("Location: ../login.php?msg=$msg");
@@ -56,32 +56,6 @@ require_once ('../CRUDheader.php');
             <input type="submit" value="Voeg game toe" class="btn">
         </form>
 
-        <h2>Toegevoegde games:</h2>
-        
-        <?php 
-        require_once '../backend/conn.php';
-        $query = "SELECT * FROM favgames"; 
-        $statement = $conn->prepare($query);
-        $statement->execute();
-        $games = $statement->fetchAll(PDO::FETCH_ASSOC);
-
-        if (count($games) > 0) {
-            echo "<table>";
-            echo "<tr><th>Id</th><th>Naam Game</th><th>Genre</th><th>Prijs</th><th>Geüpload door</th></tr>";
-            foreach ($games as $game) {
-                echo "<tr>";
-                echo "<td>" . $game['id'] . "</td>";
-                echo "<td>" . $game['game'] . "</td>";
-                echo "<td>" . $game['type'] . "</td>";
-                echo "<td>" . $game['price'] . " €</td>";
-                echo "<td>" . $game['uploaded_by'] . "</td>";
-                echo "</tr>";
-            }
-            echo "</table>";
-        } else {
-            echo "<p>Er zijn nog geen games toegevoegd.</p>";
-        }
-        ?>
     </div>
 
 </body>

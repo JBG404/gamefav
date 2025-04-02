@@ -1,4 +1,5 @@
 <?php
+session_start();
 if (!isset($_SESSION['user_id'])) {
     $msg = "Je moet ingelogd zijn om deze pagina te bekijken.";
     header("Location: ../login.php?msg=$msg");
