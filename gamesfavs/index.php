@@ -1,5 +1,5 @@
 <?php
-session_start();
+
 if (!isset($_SESSION['user_id'])) {
     $msg = "Je moet ingelogd zijn om deze pagina te bekijken.";
     header("Location: ../login.php?msg=$msg");
@@ -11,14 +11,13 @@ if (!isset($_SESSION['user_id'])) {
 
 
 <?php
-require_once ('head.php');
-require_once ('header.php');
+require_once ('../head.php');
+require_once ('../CRUDheader.php');
 ?>
 
 
 <body>
 
-    <?php require_once '../header.php'; ?>
 
     <div class="container">
         <h1>Voeg je favoriete games toe</h1>
