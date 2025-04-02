@@ -10,4 +10,8 @@
       <a href="<?php  $base_url; ?>/login.php">|Login|</a>
       <a href="<?php  $base_url; ?>/createAccount.php">|Register|</a>
    </nav>
+   <pre style="border: 1px dashed lightgrey; padding: 3px;"><?php 
+        if(isset($_SESSION)) print_r($_SESSION);
+        else echo '$_SESSION bestaat niet';
+        ?></pre>
 </header>
