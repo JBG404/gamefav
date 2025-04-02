@@ -9,10 +9,8 @@
    </nav> 
    <h1>FAVOURITE GAMES LIST</h1>
    <nav id="login">
-      <a href="<?php  $base_url; ?>/login.php">|Login|</a>
+   <?php if (isset($_SESSION['user_id'])) {?>
+         <a href="<?php  $base_url; ?>/logout.php">|Logout|</a>
+      <?php } else { ?>  <a href="<?php  $base_url; ?>/login.php">|Login|</a> <?php } ?>
    </nav>
-   <pre style="border: 1px dashed lightgrey; padding: 3px;"><?php 
-        if(isset($_SESSION)) print_r($_SESSION);
-        else echo '$_SESSION bestaat niet';
-        ?></pre>
 </header>
