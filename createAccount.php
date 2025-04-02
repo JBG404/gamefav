@@ -17,7 +17,7 @@ if (isset($_GET['error'])) {
 ?>
 
 <form action="backend/loginController.php" method="POST">
-<input type="hidden" name="action" value="login">
+    <input type="hidden" name="action" value="create">
     <div class="form-group">
         <label for="username">Gebruikersnaam</label>
         <input type="text" name="username" id="username" placeholder="Gebruikersnaam">
@@ -27,7 +27,7 @@ if (isset($_GET['error'])) {
         <input type="password" name="password" id="password" placeholder="Wachtwoord">
     </div>
 
-    <input type="submit" value="Inloggen">
+    <input type="submit" value="Make Account">
 </form>
 
 </div>
